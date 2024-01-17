@@ -15,7 +15,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link " href="#">Show Notes</a>
+                <a class="nav-link " href="allNotes.jsp">Show Notes</a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0 ">

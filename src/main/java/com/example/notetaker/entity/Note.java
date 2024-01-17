@@ -15,6 +15,7 @@ public class Note {
     private String content;
     private Date createdDate;
 
+
     public Note() {
     }
 

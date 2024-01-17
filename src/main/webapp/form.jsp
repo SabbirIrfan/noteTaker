@@ -1,4 +1,4 @@
-<form action="/savenoteservlet" method="post">
+<form action="savenoteservlet" method="post">
     <div class="form-group formPad">
         <label for="tittle">Note Tittle</label>
         <input type=text class="form-control" id="tittle" name="tittle" required aria-describedby="emailHelp" placeholder="Tittle Goes Here">
@@ -7,7 +7,10 @@
     </div>
     <div class="form-group formPad">
         <label for="content">Content</label>
-        <input type="text" class="form-control noteContainer" id="content" name="content" required placeholder="Your Notes...">
+        <textarea  class="form-control noteContainer" id="content" name="content" required>
+            Your Notes...
+
+        </textarea>
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>

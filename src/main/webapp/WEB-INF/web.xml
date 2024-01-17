@@ -6,14 +6,14 @@
 <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
 </welcome-file-list>
-<!--    <servlet>-->
-<!--        <servlet-name>savenoteservlet</servlet-name>-->
-<!--        <servlet-class>com.example.notetaker.SaveNoteServlet</servlet-class>-->
-<!--        <load-on-startup>1</load-on-startup>-->
-<!--    </servlet>-->
+    <servlet>
+        <servlet-name>savenoteservlet</servlet-name>
+        <servlet-class>com.example.notetaker.servlets.SaveNoteServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
 
-<!--    <servlet-mapping>-->
-<!--        <servlet-name>savenoteservlet</servlet-name>-->
-<!--        <url-pattern>/savenoteservlet</url-pattern>-->
-<!--    </servlet-mapping>-->
+    <servlet-mapping>
+        <servlet-name>savenoteservlet</servlet-name>
+        <url-pattern>/savenoteservlet</url-pattern>
+    </servlet-mapping>
 </web-app>

@@ -1,4 +1,4 @@
-package com.example.notetaker;
+package com.example.notetaker.helper;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -8,13 +8,13 @@ public class FactoryProvider {
 
     public static SessionFactory factory;
 
-    public SessionFactory getFactory(){
+    public static SessionFactory getFactory(){
 
         return factory == null
                 ? new Configuration().configure("hibernate.cfg.xml")
                 .buildSessionFactory() : factory;
     }
-    public void closeFactory(){
+    public  static void closeFactory(){
         if(factory.isOpen()){
             factory.close();
         }

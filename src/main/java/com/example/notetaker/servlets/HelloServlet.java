@@ -1,4 +1,4 @@
-package com.example.notetaker;
+package com.example.notetaker.servlets;
 
 import java.io.*;
 import jakarta.servlet.http.*;
