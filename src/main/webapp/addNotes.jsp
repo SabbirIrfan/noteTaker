@@ -18,13 +18,41 @@
     <%
     if(request.getAttribute("status") != null)
         out.println(request.getAttribute("status"));
+    if(request.getAttribute("tittle") == null)
+        request.setAttribute("tittle","Give a title to your note");
 
+    if(request.getAttribute("content") == null)
+        request.setAttribute("content", "what you wanna save for latter");
+
+    if(request.getAttribute("id") == null){
+        request.setAttribute("id","no");
+
+    }
+    System.out.println(request.getAttribute("id")+ " in add notes");
 
     %>
 
 
 <%--   ADD NOTES  --%>
-    <%@include file="form.jsp"%>
+    <form action="savenoteservlet" method="post">
+        <input type="hidden" name="id" id="id" value="<%=request.getAttribute("id")%>">
+        <div class="form-group formPad">
+            <label for="tittle">Note Tittle</label>
+            <input type=text class="form-control" id="tittle" name="tittle" required aria-describedby="emailHelp" placeholder="<% out.println(request.getAttribute("tittle"));%>">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your Notes with anyone else But why should you believe anything I promise</small>
+
+        </div>
+        <div class="form-group formPad">
+            <label for="content">Content</label>
+            <textarea  class="form-control noteContainer" id="content" name="content" required>
+                <% out.println(request.getAttribute("content"));%>
+
+        </textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
 
 </div>
 </body>

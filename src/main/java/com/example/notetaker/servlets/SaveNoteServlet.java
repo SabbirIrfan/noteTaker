@@ -10,7 +10,6 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 @WebServlet(name = "savenoteservlet", value = "/savenoteservlet")
@@ -25,15 +24,35 @@ public class SaveNoteServlet extends HttpServlet {
         response.setContentType("text/html");
         try {
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("addNotes.jsp");
-            String tittle = request.getParameter("tittle");
-            String content = request.getParameter("content");
-//            int userId = request.getParameter("userId");
-            Note note = new Note(tittle,content,new Date());
+
 
             Session session = FactoryProvider.getFactory().openSession();
             Transaction tx = session.beginTransaction();
-            session.persist(note);
 
+
+
+            System.out.println((request.getParameter("id")));
+            int id = Integer.parseInt(request.getParameter("id").trim());
+            if( !request.getParameter("id").equals("no")  ){
+                Note note = session.get(Note.class,id);
+                System.out.println(request.getParameter("id").trim()+"nothing??");
+                note.setContent(request.getParameter("content"));
+                note.setTittle(request.getParameter("tittle"));
+                note.setId(id);
+                note.setCreatedDate(new Date());
+//                session.update(note);
+                System.out.println("updating");
+
+
+            }
+            else {
+                String tittle = request.getParameter("tittle");
+                String content = request.getParameter("content");
+//            int userId = request.getParameter("userId");
+                Note note = new Note(tittle,content,new Date());
+                System.out.println("creating new");
+                session.persist(note);
+            }
             tx.commit();
 
 //            System.out.println(session.isDirty());

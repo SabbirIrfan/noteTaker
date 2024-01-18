@@ -10,6 +10,7 @@
   <div class="container">
     <%@include file="navbar.jsp"%>
     <h3> This is Home page</h3>
+    <%@include file="form.jsp"%>
   </div>
 </body>
 </html>

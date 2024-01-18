@@ -33,11 +33,12 @@
 
         for(Note note: list){
             if(note.getTittle() == null) continue;
-%>
+    %>
     <div class="card flexCard" style="width: 69.7rem;">
         <div class="card-body ">
             <h5 class="card-title "><%= note.getTittle() %></h5>
             <p class="card-text"><%= note.getContent() %></p>
+            <p class="card-text"><%= note.getCreatedDate() %></p>
             <div class="container text-center">
             <a href="deletenoteservlet?id=<%= note.getId()%>" class="btn btn-primary">Delete</a>
             <a href="editservlet?id=<%=note.getId()%>" class="btn btn-primary">Edit</a>
